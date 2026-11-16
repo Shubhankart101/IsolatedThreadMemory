@@ -84,7 +84,7 @@ def send_message(
     if not isinstance(message, str) or not message.strip():
         raise InvalidMessageError("message must be a nonblank string")
     config = build_thread_config(thread_id)
-    return graph.invoke({"messages": [HumanMessage(content=message)]}, config)
+    return graph.invoke({"messages": [HumanMessage(content=message)]}, config=config)
 
 
 def extract_reply(result: Mapping[str, Any]) -> ConversationReply:
